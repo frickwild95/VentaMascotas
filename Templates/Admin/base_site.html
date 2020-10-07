@@ -1,0 +1,237 @@
+{% extends "admin/base.html" %}
+
+{% block title %}YOREPARO.NET{% endblock %}
+{% block extrastyle%}
+<style media="screen">
+/*encabezado donde va el logo*/
+#header {
+    width: auto;
+    height: auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 40px;
+    background: #60E9FF;
+    color: #4682B4
+    overflow: hidden;
+}
+/*logout*/
+div.breadcrumbs {
+    background: #FF9E29;
+    padding: 10px 40px;
+    border: 2px solid #026DE6;
+    font-size: 14px;
+    color: #c4dce8;
+    text-align: left;
+}
+/*Panel de herramientas*/
+#user-tools {
+    float: right;
+    padding: 0;
+    margin: 0 0 0 20px;
+    font-weight: 300;
+    font-size: 13px;
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+    text-align: right;
+    color: #000080;
+    }
+    #header a:link
+    {
+    color: #000080;
+    }
+    #header a:visited
+    {
+    color:#FFA500;
+    }
+/*cambiar modulos*/
+.module caption
+{
+    margin: 0;
+    padding: 8px;
+    font-weight: 400;
+    font-size: 13px;
+    text-align: left;
+    background: #FF9E29;
+    border-radius: 25px 25px 25px;
+    border: 2px solid #026DE6;
+    color: #00A011;
+}
+.module h2, .inline-group h2{
+    margin: 0;
+    padding: 8px;
+    font-weight: 400;
+    font-size: 13px;
+    text-align: left;
+    background: #d5ff99;
+    color: #4682B4;
+}
+a:link, a:visited
+{
+    color: #004d73;
+    font-size: 15px;
+    text-decoration: none;
+}
+/*filtros*/
+/* Selector */
+.selector-chosen h2 {
+    background: #FFDFA0;
+    color: #4682b4;
+}
+.selector-available h2, .selector-chosen h2 {
+    border: 1px solid #ccc;
+    border-radius: 4px 4px 0 0;
+}
+
+/*modulo de acciones*/
+#content-related .module h2 {
+    background: #CCFDFF;
+    padding: 16px;
+    margin-bottom: 16px;
+    border-bottom: 5px solid #4682b4;
+    font-size: 25px;
+    color: #4682b4;
+}
+#content-related .module
+{
+    background: #CCFDFF;
+    border-radius: 10px 10px 10px;
+    border: 2px solid #4682B4;
+}
+/*mensaje de bienvenida*/
+h1 {
+    margin: 0 0 20px;
+    font-weight: 300;
+    font-size: 15px;
+    color: #4682B4;
+}
+/*botones*/
+.button, input[type=submit], .submit-row input {
+    background: #4682B4;
+    padding: 5px 10px;
+    border-radius: 14px 14px 14px;
+    border: 3px solid #7CFC00;
+    font-size: 15px;
+    color: #fff;
+    cursor: pointer;
+}
+.default, .submit-row input.default {
+    float: right;
+    border-radius: 14px 14px 14px;
+    border: 3px solid #7CFC00;
+    font-weight: 400;
+    background: #4682B4;
+    cursor: pointer;
+}
+
+/*boton de añadir*/
+.object-tools a:link {
+    display: block;
+    float: left;
+    padding: 5px 15px;
+    background: #00A61C;
+    border-radius: 14px 14px 14px;
+    border: 3px solid #FFAB3F;
+    font-weight: 400;
+    font-size: 14px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    color: #fff;
+}
+
+.object-tools a.addlink
+{
+    background-repeat: no-repeat;
+    background-position: right 7px center;
+    border-radius: 14px 14px 14px;
+    border: 3px solid #FFAB3F;
+    padding-right: 26px;
+    background: #00A61C;
+}
+
+/*Filtro de listas panel paneles*/
+.module h2, .inline-group h2 {
+    margin: 0;
+    padding: 8px;
+    font-weight: 400;
+    text-align: left;
+    background: #d5ff99;
+    color:  #4682B4;
+}
+/*eliminar boton*/
+.submit-row a.deletelink {
+    display: block;
+    background: #ba2121;
+    border-radius: 4px;
+    padding: 10px 15px;
+    height: 15px;
+    line-height: 15px;
+    color: #fff;
+}
+a.deletelink {
+    display: block;
+    background: #ff0000;
+    border-radius: 4px 4px 4px;
+    border: 3px solid #FF6C35;
+    padding: 10px 15px;
+    height: 15px;
+    line-height: 15px;
+    color: #fff;
+}
+.delete-confirmation form .cancel-link {
+    display: inline-block;
+    vertical-align: middle;
+    height: 15px;
+    line-height: 15px;
+    background: #79aec8;
+    border-radius: 15px 15px 15px;
+    border: 3px solid #FF6C35;
+    padding: 10px 15px;
+    color: #333;
+    margin: 0 0 0 10px;
+}
+.delete-confirmation form input[type="submit"]
+{
+    background: #cc0000;
+    border-radius: 15px 15px 15px;
+    border: 3px solid #7cfc00;
+    padding: 10px 15px;
+    padding: 10px 15px;
+    color: #fff;
+}
+/*selector de dos paneles*/
+.selector-chosen h2 {
+    background: #7FF1FF;
+    color: #cc2727;
+}
+.selector-available h2 {
+    border: 1px solid #d5ff99;
+    border-radius: 4px 4px 0 0;
+}
+.login #header {
+    height: auto;
+    padding: 15px 16px;
+    justify-content: center;
+    border-radius: 15px 15px 15px;
+    border: 2px solid #4682B4;
+}
+.menu {
+  float: right;
+}
+</style>
+{% endblock %}
+
+{% load static from staticfiles %}
+{% block content %}
+{% block branding %}
+
+
+<center>
+    <a href="{%url "admin:index"%}"><img src="{% static 'logo.png' %}"  class="img-fluid" width="400" height="100"/></a>
+    <font color="white"><strong><br>Colonia San José Obrero, Esquipulas, Chiquimula</strong></font>
+</center>
+
+{% endblock %}
+{% endblock %}
+
+{% block nav-global %}{% endblock %}
