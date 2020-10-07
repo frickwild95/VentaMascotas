@@ -1,0 +1,1 @@
+web: gunicorn VentaMascotas.wsgi --log-file -

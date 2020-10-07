@@ -1,0 +1,57 @@
+<HEAD>
+ <meta content="text/html;" http-equiv="content-type" charset="utf-8">
+</HEAD>
+
+{% extends "easy_pdf/base.html" %}
+
+{% block content %}
+<{% load staticfiles %}
+<center>
+   <img src="{% static 'logo.jpg' %}"  class="img-fluid" width="500px" height="200px"/>
+    <font color="#0E9AEF"><strong><br>Chiquimula - Chiquimula</strong></font>
+    <font color="#0E9AEF"><strong><br>Teléfono: 3282-5994  *  E-mail: petshop-cat&miau@gmail.com</strong></font>
+</center>
+<h2 align="center">------ LISTADO DE VENTAS -------</h2>
+ <style>
+            table {
+            padding: 3px 2px;
+                text-align: center;
+                border: 1px solid #999;
+                width: 100%;
+                border-collapse: collapse;
+            }
+
+            td {
+                padding: 5px 10px;
+                text-align: center;
+                border: 1px solid #999;
+            }
+
+            tr:nth-child(1) {
+                background: #dedede;
+            }
+        </style>
+<table>
+  <thead>
+    <tr>
+      <th align=center>FECHA</th>
+      <th align=center>CLIENTE</th>
+      <th align=center>EMPLEADO</th>
+      <th align=center>TOTAL</th>
+
+    </tr>
+  </thead>
+  <tbody>
+    {%for sale in sales%}
+    <tr>
+      <td align=center>{{sale.date}}</td>
+      <td align=center>{{sale.client}}</td>
+      <td align=center>{{sale.employee}}</td>
+      <td align=center>Q. {{sale.total}}</td>
+    </tr>
+
+    {%endfor%}
+  </tbody>
+</table>
+
+{%endblock content%}

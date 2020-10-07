@@ -1,0 +1,100 @@
+<HEAD>
+ <meta content="text/html;" http-equiv="content-type" charset="utf-8">
+</HEAD>
+{% extends "easy_pdf/base.html" %}
+{% load staticfiles %}
+{% block content %}
+<center>
+   <img src="{% static 'logo.jpg' %}"  class="img-fluid" width="500px" height="200px"/>
+    <font color="#0E9AEF"><strong><br>Chiquimula - Chiquimula</strong></font>
+    <font color="#0E9AEF"><strong><br>Teléfono: 4242-2798  *  E-mail: yoreparo.net@hotmail.com</strong></font>
+</center>
+<h1 align="center">* * Comprobante de Venta * * No.  {{ sale.id }}</h1>
+     <h2 align="center">- - - - - - - - - Datos del Cliente - - - - - - - - -</h2>
+<div id="content">
+
+    <table>
+
+        <tr>
+        <th align=center colspan="0"> Fecha:
+            <td>
+                {{ sale.date }}
+            </td></th>
+        </tr>
+        <tr>
+        <th align=center colspan="0"> Cliente:
+            <td>
+                {{ sale.client }}
+            </td></th>
+        </tr>
+
+            <style>
+            table {
+            padding: 3px 2px;
+                text-align: center;
+                border: 1px solid #999;
+                width: 100%;
+                border-collapse: collapse;
+            }
+
+            td {
+                padding: 5px 10px;
+                text-align: center;
+                border: 1px solid #999;
+            }
+
+            tr:nth-child(1) {
+                background: #dedede;
+            }
+        </style>
+            <table>
+                <h2 align="center">- - - - - - - - - Detalle de la compra - - - - - - - - -</h2>
+                <thead>
+                    <tr>
+                         <th align=center colspan="1">CANTIDAD</th>
+                         <th align=center>MASCOTA</th>
+                         <th align=center>PRECIO</th>
+                         <th align=center colspan=4> DESCRIPCION</th>
+                    </tr>
+                </thead>
+                    <tbody>
+                        {%for saledetail in saledetails%}
+                         <td align=center >{{saledetail.quantity}}</td>
+                          <td align=center >{{saledetail.product}}</td>
+                          <td align=center>Q. {{saledetail.product.price}}</td>
+                          <td align=center colspan="4">{{saledetail.product.description}}</td>
+                        </tr>
+                        {%endfor%}
+                    </tbody>
+            </table>
+            <br>
+        </tr>
+        <tr>
+            <th>
+                Total:
+            </th>
+            <td>
+                Q. {{ sale.total }}
+
+            </td>
+        </tr>
+        <br>
+        <tr>
+            <th>
+                Vendedor:
+            </th>
+            <td>
+                {{ sale.employee }}
+            </td>
+        </tr>
+    </table>
+</div>
+<br>
+<div id="footer">
+      <center><br>
+         <img src="{% static 'fooder.jpg' %}"
+        class="img-fluid" width="700" height="100px"/>
+      </center>
+      <br>
+    </div>
+{% endblock %}
