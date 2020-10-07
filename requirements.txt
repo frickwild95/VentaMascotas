@@ -4,7 +4,7 @@ beautifulsoup4==4.3.2
 certifi==2020.4.5.2
 chardet==3.0.4
 colorama==0.4.3
-decouple==0.0.7
+decouple==3.3
 dj-database-url==0.5.0
 Django==2.2
 django-crispy-forms==1.4.0
@@ -22,7 +22,7 @@ psycopg2==2.8.5
 pylint==2.5.2
 PyPDF2==1.26.0
 python-dateutil==1.5
-python-decouple==3.1
+python-decouple==3.3
 pytz==2020.1
 reportlab==3.5.42
 requests==2.23.0
