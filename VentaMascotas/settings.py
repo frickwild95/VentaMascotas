@@ -23,7 +23,7 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SECRET_KEY = '=1laasmt-3i284bw$2q&q!&fbb7-cy6tj$!-0rsj14=$mmqkp9'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
 ALLOWED_HOSTS = []
 
@@ -87,14 +87,14 @@ DATABASES = {
     }
 }
 
-import dj_database_url 
-from decouple import config
+#import dj_database_url 
+#from decouple import config
 
-DATABASES = {
-    'default': dj_database_url.config(
-        default=config('DATABASE_URL')
-        )
-}
+#DATABASES = {
+#    'default': dj_database_url.config(
+#        default=config('DATABASE_URL')
+#        )
+#}
 
 # Password validation
 # https://docs.djangoproject.com/en/3.0/ref/settings/#auth-password-validators
@@ -141,5 +141,5 @@ STATICFILES_DIRS = [
     os.path.join(BASE_DIR, 'media'),
 ]
 
-STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
+#STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 

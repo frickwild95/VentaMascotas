@@ -23,8 +23,8 @@ from Mascotas.views import InventoryPDFView
 from Empleados.views import EmpleadosPDFView
 from Clientes.views import ClientesPDFView
 from Mascotas.views import IngresoMercaderiaPDFView
-from django.config import settings
-from django.config.urls.static import static
+#from django.config import settings
+#from django.config.urls.static import static
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -38,4 +38,4 @@ urlpatterns = [
     path('reporte/ingresos/mascotas', IngresoMercaderiaPDFView.as_view(), name="ingresos"),
     path('reporte/ventas', VentasPDFView.as_view(), name="ventas"),
 ] 
-+ static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
+#+ static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
