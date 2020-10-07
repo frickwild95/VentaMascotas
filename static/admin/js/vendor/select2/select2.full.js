@@ -425,7 +425,7 @@ var requirejs, require, define;
 
         //Simulate async callback;
         if (forceSync) {
-            main(undef, deps, callback, relName);
+            main (undef, deps, callback, relName);
         } else {
             //Using a non-zero value because of concern for what old browsers
             //do, and latest browsers "upgrade" to 4 if lower value is used:
@@ -434,7 +434,7 @@ var requirejs, require, define;
             //that works in almond on the global level, but not guaranteed and
             //unlikely to work in other AMD implementations.
             setTimeout(function () {
-                main(undef, deps, callback, relName);
+                main (undef, deps, callback, relName);
             }, 4);
         }
 
