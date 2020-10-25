@@ -1,6 +1,6 @@
 {% extends "admin/base.html" %}
 
-{% block title %}YOREPARO.NET{% endblock %}
+{% block title %}PETSHOP{% endblock %}
 {% block extrastyle%}
 <style media="screen">
 /*encabezado donde va el logo*/
@@ -11,7 +11,7 @@
     justify-content: space-between;
     align-items: center;
     padding: 10px 40px;
-    background: #60E9FF;
+    background: #ff6000;
     color: #4682B4
     overflow: hidden;
 }
@@ -110,7 +110,7 @@ h1 {
     background: #4682B4;
     padding: 5px 10px;
     border-radius: 14px 14px 14px;
-    border: 3px solid #7CFC00;
+    border: 3px solid #000000;
     font-size: 15px;
     color: #fff;
     cursor: pointer;
@@ -227,8 +227,8 @@ a.deletelink {
 
 
 <center>
-    <a href="{%url "admin:index"%}"><img src="{% static 'logo.png' %}"  class="img-fluid" width="400" height="100"/></a>
-    <font color="white"><strong><br>Colonia San José Obrero, Esquipulas, Chiquimula</strong></font>
+    <a href="{%url "admin:index"%}"><img src="{% static 'logo.jpg' %}"  class="img-fluid" width="200" height="150"/></a>
+    <font color="black"><strong><br>Chiquimula, Chiquimula</strong></font>
 </center>
 
 {% endblock %}
